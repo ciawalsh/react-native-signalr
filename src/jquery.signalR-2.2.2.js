@@ -950,7 +950,7 @@
 
             // Clear out our message buffer
             connection._.connectingMessageBuffer.clear();
-            
+
             // Clean up this event
             $(connection).unbind(events.onStart);
 
@@ -1273,6 +1273,10 @@
 
             if (connection.data) {
                 preparedUrl += "&connectionData=" + window.encodeURIComponent(connection.data);
+            }
+
+            if (connection.access_token) {
+                preparedUrl += "&access_token=" + window.encodeURIComponent(connection.access_token);
             }
 
             return preparedUrl;
